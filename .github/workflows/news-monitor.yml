@@ -1,0 +1,67 @@
+name: 네이버 뉴스 → 카카오톡 알림
+
+on:
+  schedule:
+    - cron: "*/10 * * * *" # 10분마다 (GitHub 사정으로 몇 분 늦을 수 있음)
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "카카오 전송 없이 로그로만 확인"
+        type: boolean
+        default: false
+
+concurrency:
+  group: news-monitor
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      KEYWORDS: "보완수사|형사소송법|중수청|공소청|대검|특검|검찰|법무부|법원|지검|압수수색|기소"
+      EXCLUDE_KEYWORDS: ""
+      MAX_MESSAGES: "15"
+      STATE_FILE: state/seen.json
+      NEW_REFRESH_TOKEN_FILE: state/new_refresh_token
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # 이미 보낸 기사 목록 불러오기
+      - uses: actions/cache/restore@v4
+        with:
+          path: state/seen.json
+          key: news-seen-${{ github.run_id }}
+          restore-keys: news-seen-
+
+      - name: 뉴스 확인 및 카카오톡 전송
+        env:
+          NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
+          NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
+          KAKAO_REST_API_KEY: ${{ secrets.KAKAO_REST_API_KEY }}
+          KAKAO_CLIENT_SECRET: ${{ secrets.KAKAO_CLIENT_SECRET }}
+          KAKAO_REFRESH_TOKEN: ${{ secrets.KAKAO_REFRESH_TOKEN }}
+          DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
+        run: python news_monitor/monitor.py
+
+      - uses: actions/cache/save@v4
+        with:
+          path: state/seen.json
+          key: news-seen-${{ github.run_id }}
+
+      # 카카오 리프레시 토큰이 갱신되면 Secret도 자동으로 바꿔 둔다 (GH_PAT가 있을 때)
+      - name: 갱신된 카카오 토큰 저장
+        if: hashFiles('state/new_refresh_token') != ''
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::warning::카카오 리프레시 토큰이 갱신됐지만 GH_PAT가 없어 저장하지 못했습니다. 가이드의 '토큰 만료' 항목을 참고해 KAKAO_REFRESH_TOKEN을 새로 발급해 주세요."
+            exit 0
+          fi
+          gh secret set KAKAO_REFRESH_TOKEN --repo "$GITHUB_REPOSITORY" < state/new_refresh_token
+          rm -f state/new_refresh_token

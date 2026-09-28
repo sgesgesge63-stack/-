@@ -35,3 +35,7 @@ python album_cleanup.py ~/Pictures/폰백업 --undo
 - `--no-screenshots` 스크린샷은 후보에서 제외
 
 아이폰 HEIC 사진은 `pillow-heif`가 설치돼 있어야 읽힙니다.
+
+## 네이버 뉴스 → 카카오톡 알림
+
+키워드 뉴스 모니터링 봇은 [news_monitor/README.md](news_monitor/README.md)를 보세요.
