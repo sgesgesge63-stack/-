@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>을지로 점심지도</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>.leaflet-pane,.leaflet-tile,.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-tile-container,.leaflet-pane>svg,.leaflet-pane>canvas,.leaflet-zoom-box,.leaflet-image-layer,.leaflet-layer{position:absolute;left:0;top:0;}.leaflet-container{overflow:hidden;}.leaflet-tile,.leaflet-marker-icon,.leaflet-marker-shadow{-webkit-user-select:none;-moz-user-select:none;user-select:none;-webkit-user-drag:none;}.leaflet-tile::selection{background:transparent;}.leaflet-safari .leaflet-tile{image-rendering:-webkit-optimize-contrast;}.leaflet-safari .leaflet-tile-container{width:1600px;height:1600px;-webkit-transform-origin:0 0;}.leaflet-marker-icon,.leaflet-marker-shadow{display:block;}.leaflet-container .leaflet-overlay-pane svg{max-width:none !important;max-height:none !important;}.leaflet-container .leaflet-marker-pane img,.leaflet-container .leaflet-shadow-pane img,.leaflet-container .leaflet-tile-pane img,.leaflet-container img.leaflet-image-layer,.leaflet-container .leaflet-tile{max-width:none !important;max-height:none !important;width:auto;padding:0;}.leaflet-container img.leaflet-tile{mix-blend-mode:plus-lighter;}.leaflet-container.leaflet-touch-zoom{-ms-touch-action:pan-x pan-y;touch-action:pan-x pan-y;}.leaflet-container.leaflet-touch-drag{-ms-touch-action:pinch-zoom;touch-action:none;touch-action:pinch-zoom;}.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom{-ms-touch-action:none;touch-action:none;}.leaflet-container{-webkit-tap-highlight-color:transparent;}.leaflet-container a{-webkit-tap-highlight-color:rgba(51,181,229,0.4);}.leaflet-tile{filter:inherit;visibility:hidden;}.leaflet-tile-loaded{visibility:inherit;}.leaflet-zoom-box{width:0;height:0;-moz-box-sizing:border-box;box-sizing:border-box;z-index:800;}.leaflet-overlay-pane svg{-moz-user-select:none;}.leaflet-pane{z-index:400;}.leaflet-tile-pane{z-index:200;}.leaflet-overlay-pane{z-index:400;}.leaflet-shadow-pane{z-index:500;}.leaflet-marker-pane{z-index:600;}.leaflet-tooltip-pane{z-index:650;}.leaflet-popup-pane{z-index:700;}.leaflet-map-pane canvas{z-index:100;}.leaflet-map-pane svg{z-index:200;}.leaflet-vml-shape{width:1px;height:1px;}.lvml{display:inline-block;position:absolute;}.leaflet-control{position:relative;z-index:800;pointer-events:visiblePainted;pointer-events:auto;}.leaflet-top,.leaflet-bottom{position:absolute;z-index:1000;pointer-events:none;}.leaflet-top{top:0;}.leaflet-right{right:0;}.leaflet-bottom{bottom:0;}.leaflet-left{left:0;}.leaflet-control{float:left;clear:both;}.leaflet-right .leaflet-control{float:right;}.leaflet-top .leaflet-control{margin-top:10px;}.leaflet-bottom .leaflet-control{margin-bottom:10px;}.leaflet-left .leaflet-control{margin-left:10px;}.leaflet-right .leaflet-control{margin-right:10px;}.leaflet-fade-anim .leaflet-popup{opacity:0;-webkit-transition:opacity 0.2s linear;-moz-transition:opacity 0.2s linear;transition:opacity 0.2s linear;}.leaflet-fade-anim .leaflet-map-pane .leaflet-popup{opacity:1;}.leaflet-zoom-animated{-webkit-transform-origin:0 0;-ms-transform-origin:0 0;transform-origin:0 0;}svg.leaflet-zoom-animated{will-change:transform;}.leaflet-zoom-anim .leaflet-zoom-animated{-webkit-transition:-webkit-transform 0.25s cubic-bezier(0,0,0.25,1);-moz-transition:-moz-transform 0.25s cubic-bezier(0,0,0.25,1);transition:transform 0.25s cubic-bezier(0,0,0.25,1);}.leaflet-zoom-anim .leaflet-tile,.leaflet-pan-anim .leaflet-tile{-webkit-transition:none;-moz-transition:none;transition:none;}.leaflet-zoom-anim .leaflet-zoom-hide{visibility:hidden;}.leaflet-interactive{cursor:pointer;}.leaflet-grab{cursor:-webkit-grab;cursor:-moz-grab;cursor:grab;}.leaflet-crosshair,.leaflet-crosshair .leaflet-interactive{cursor:crosshair;}.leaflet-popup-pane,.leaflet-control{cursor:auto;}.leaflet-dragging .leaflet-grab,.leaflet-dragging .leaflet-grab .leaflet-interactive,.leaflet-dragging .leaflet-marker-draggable{cursor:move;cursor:-webkit-grabbing;cursor:-moz-grabbing;cursor:grabbing;}.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-image-layer,.leaflet-pane>svg path,.leaflet-tile-container{pointer-events:none;}.leaflet-marker-icon.leaflet-interactive,.leaflet-image-layer.leaflet-interactive,.leaflet-pane>svg path.leaflet-interactive,svg.leaflet-image-layer.leaflet-interactive path{pointer-events:visiblePainted;pointer-events:auto;}.leaflet-container{background:#ddd;outline-offset:1px;}.leaflet-container a{color:#0078A8;}.leaflet-zoom-box{border:2px dotted #38f;background:rgba(255,255,255,0.5);}.leaflet-container{font-family:"Helvetica Neue",Arial,Helvetica,sans-serif;font-size:12px;font-size:0.75rem;line-height:1.5;}.leaflet-bar{box-shadow:0 1px 5px rgba(0,0,0,0.65);border-radius:4px;}.leaflet-bar a{background-color:#fff;border-bottom:1px solid #ccc;width:26px;height:26px;line-height:26px;display:block;text-align:center;text-decoration:none;color:black;}.leaflet-bar a,.leaflet-control-layers-toggle{background-position:50% 50%;background-repeat:no-repeat;display:block;}.leaflet-bar a:hover,.leaflet-bar a:focus{background-color:#f4f4f4;}.leaflet-bar a:first-child{border-top-left-radius:4px;border-top-right-radius:4px;}.leaflet-bar a:last-child{border-bottom-left-radius:4px;border-bottom-right-radius:4px;border-bottom:none;}.leaflet-bar a.leaflet-disabled{cursor:default;background-color:#f4f4f4;color:#bbb;}.leaflet-touch .leaflet-bar a{width:30px;height:30px;line-height:30px;}.leaflet-touch .leaflet-bar a:first-child{border-top-left-radius:2px;border-top-right-radius:2px;}.leaflet-touch .leaflet-bar a:last-child{border-bottom-left-radius:2px;border-bottom-right-radius:2px;}.leaflet-control-zoom-in,.leaflet-control-zoom-out{font:bold 18px 'Lucida Console',Monaco,monospace;text-indent:1px;}.leaflet-touch .leaflet-control-zoom-in,.leaflet-touch .leaflet-control-zoom-out{font-size:22px;}.leaflet-control-layers{box-shadow:0 1px 5px rgba(0,0,0,0.4);background:#fff;border-radius:5px;}.leaflet-control-layers-toggle{width:36px;height:36px;}.leaflet-retina .leaflet-control-layers-toggle{background-size:26px 26px;}.leaflet-touch .leaflet-control-layers-toggle{width:44px;height:44px;}.leaflet-control-layers .leaflet-control-layers-list,.leaflet-control-layers-expanded .leaflet-control-layers-toggle{display:none;}.leaflet-control-layers-expanded .leaflet-control-layers-list{display:block;position:relative;}.leaflet-control-layers-expanded{padding:6px 10px 6px 6px;color:#333;background:#fff;}.leaflet-control-layers-scrollbar{overflow-y:scroll;overflow-x:hidden;padding-right:5px;}.leaflet-control-layers-selector{margin-top:2px;position:relative;top:1px;}.leaflet-control-layers label{display:block;font-size:13px;font-size:1.08333em;}.leaflet-control-layers-separator{height:0;border-top:1px solid #ddd;margin:5px -10px 5px -6px;}.leaflet-default-icon-path{}.leaflet-container .leaflet-control-attribution{background:#fff;background:rgba(255,255,255,0.8);margin:0;}.leaflet-control-attribution,.leaflet-control-scale-line{padding:0 5px;color:#333;line-height:1.4;}.leaflet-control-attribution a{text-decoration:none;}.leaflet-control-attribution a:hover,.leaflet-control-attribution a:focus{text-decoration:underline;}.leaflet-attribution-flag{display:inline !important;vertical-align:baseline !important;width:1em;height:0.6669em;}.leaflet-left .leaflet-control-scale{margin-left:5px;}.leaflet-bottom .leaflet-control-scale{margin-bottom:5px;}.leaflet-control-scale-line{border:2px solid #777;border-top:none;line-height:1.1;padding:2px 5px 1px;white-space:nowrap;-moz-box-sizing:border-box;box-sizing:border-box;background:rgba(255,255,255,0.8);text-shadow:1px 1px #fff;}.leaflet-control-scale-line:not(:first-child){border-top:2px solid #777;border-bottom:none;margin-top:-2px;}.leaflet-control-scale-line:not(:first-child):not(:last-child){border-bottom:2px solid #777;}.leaflet-touch .leaflet-control-attribution,.leaflet-touch .leaflet-control-layers,.leaflet-touch .leaflet-bar{box-shadow:none;}.leaflet-touch .leaflet-control-layers,.leaflet-touch .leaflet-bar{border:2px solid rgba(0,0,0,0.2);background-clip:padding-box;}.leaflet-popup{position:absolute;text-align:center;margin-bottom:20px;}.leaflet-popup-content-wrapper{padding:1px;text-align:left;border-radius:12px;}.leaflet-popup-content{margin:13px 24px 13px 20px;line-height:1.3;font-size:13px;font-size:1.08333em;min-height:1px;}.leaflet-popup-content p{margin:17px 0;margin:1.3em 0;}.leaflet-popup-tip-container{width:40px;height:20px;position:absolute;left:50%;margin-top:-1px;margin-left:-20px;overflow:hidden;pointer-events:none;}.leaflet-popup-tip{width:17px;height:17px;padding:1px;margin:-10px auto 0;pointer-events:auto;-webkit-transform:rotate(45deg);-moz-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg);}.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:white;color:#333;box-shadow:0 3px 14px rgba(0,0,0,0.4);}.leaflet-container a.leaflet-popup-close-button{position:absolute;top:0;right:0;border:none;text-align:center;width:24px;height:24px;font:16px/24px Tahoma,Verdana,sans-serif;color:#757575;text-decoration:none;background:transparent;}.leaflet-container a.leaflet-popup-close-button:hover,.leaflet-container a.leaflet-popup-close-button:focus{color:#585858;}.leaflet-popup-scrolled{overflow:auto;}.leaflet-oldie .leaflet-popup-content-wrapper{-ms-zoom:1;}.leaflet-oldie .leaflet-popup-tip{width:24px;margin:0 auto;-ms-filter:"progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678,M12=0.70710678,M21=-0.70710678,M22=0.70710678)";filter:progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678,M12=0.70710678,M21=-0.70710678,M22=0.70710678);}.leaflet-oldie .leaflet-control-zoom,.leaflet-oldie .leaflet-control-layers,.leaflet-oldie .leaflet-popup-content-wrapper,.leaflet-oldie .leaflet-popup-tip{border:1px solid #999;}.leaflet-div-icon{background:#fff;border:1px solid #666;}.leaflet-tooltip{position:absolute;padding:6px;background-color:#fff;border:1px solid #fff;border-radius:3px;color:#222;white-space:nowrap;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;pointer-events:none;box-shadow:0 1px 3px rgba(0,0,0,0.4);}.leaflet-tooltip.leaflet-interactive{cursor:pointer;pointer-events:auto;}.leaflet-tooltip-top:before,.leaflet-tooltip-bottom:before,.leaflet-tooltip-left:before,.leaflet-tooltip-right:before{position:absolute;pointer-events:none;border:6px solid transparent;background:transparent;content:"";}.leaflet-tooltip-bottom{margin-top:6px;}.leaflet-tooltip-top{margin-top:-6px;}.leaflet-tooltip-bottom:before,.leaflet-tooltip-top:before{left:50%;margin-left:-6px;}.leaflet-tooltip-top:before{bottom:0;margin-bottom:-12px;border-top-color:#fff;}.leaflet-tooltip-bottom:before{top:0;margin-top:-12px;margin-left:-6px;border-bottom-color:#fff;}.leaflet-tooltip-left{margin-left:-6px;}.leaflet-tooltip-right{margin-left:6px;}.leaflet-tooltip-left:before,.leaflet-tooltip-right:before{top:50%;margin-top:-6px;}.leaflet-tooltip-left:before{right:0;margin-right:-12px;border-left-color:#fff;}.leaflet-tooltip-right:before{left:0;margin-left:-12px;border-right-color:#fff;}@media print{.leaflet-control{-webkit-print-color-adjust:exact;print-color-adjust:exact;}}</style>
+<style>
+:root{
+  --bg:#eef1ee; --panel:#fbfcfb; --ink:#17221d; --ink-2:#4b5a53; --ink-3:#7d8b84;
+  --line:#d5ddd8; --soft:#e3e9e5;
+  --l2:#2f9e44; --l3:#f26a1b; --l3-ink:#b34708;
+  --open:#1f8a4c; --closed:#b3413a; --soon:#b7791f;
+  --road:#c9d2cc; --stream:#8cc3e3; --map:#e8ece9;
+  --shadow:0 6px 24px rgba(20,35,28,.16);
+  --f-disp:"Black Han Sans","Noto Sans KR",sans-serif;
+  --f-body:"IBM Plex Sans KR","Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  color-scheme:dark;
+  --bg:#111815; --panel:#18211d; --ink:#e7eeea; --ink-2:#a9b8b0; --ink-3:#74847c;
+  --line:#2c3833; --soft:#212c27; --l3-ink:#ff9a5c;
+  --open:#4cc57f; --closed:#ec7a72; --soon:#e3b04f;
+  --road:#34423c; --stream:#2d5f7c; --map:#151d19; --shadow:0 6px 24px rgba(0,0,0,.5);
+}}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#111815; --panel:#18211d; --ink:#e7eeea; --ink-2:#a9b8b0; --ink-3:#74847c;
+  --line:#2c3833; --soft:#212c27; --l3-ink:#ff9a5c;
+  --open:#4cc57f; --closed:#ec7a72; --soon:#e3b04f;
+  --road:#34423c; --stream:#2d5f7c; --map:#151d19; --shadow:0 6px 24px rgba(0,0,0,.5);
+}
+html,body{height:100%}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;line-height:1.5}
+.app{display:grid;grid-template-columns:380px 1fr;height:100%;min-height:560px}
+aside{display:flex;flex-direction:column;min-height:0;background:var(--panel);border-right:1px solid var(--line)}
+header.top{padding:18px 20px 14px;border-bottom:1px solid var(--line);display:grid;gap:10px}
+.brand{display:flex;align-items:center;gap:10px}
+.lines{display:flex}
+.lines span{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;color:#fff;font:700 13px/1 var(--f-body);border:2px solid var(--panel)}
+.lines span+span{margin-left:-7px}
+.lines .b2{background:var(--l2)} .lines .b3{background:var(--l3)}
+h1{margin:0;font:400 26px/1.1 var(--f-disp);letter-spacing:-.01em;text-wrap:balance}
+.sub{color:var(--ink-2);font-size:13px;margin:0}
+.sub b{color:var(--ink);font-weight:600}
+.clock{font:500 12px/1 var(--f-mono);color:var(--ink-3);font-variant-numeric:tabular-nums}
+.controls{display:grid;gap:10px;padding:12px 20px;border-bottom:1px solid var(--line)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{appearance:none;border:1px solid var(--line);background:transparent;color:var(--ink-2);font:500 12.5px/1 var(--f-body);padding:7px 11px;border-radius:999px;cursor:pointer}
+.chip:hover{border-color:var(--ink-3);color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--panel);border-color:var(--ink)}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.row label{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--ink-2);cursor:pointer}
+.row select{font:500 12.5px var(--f-body);background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:5px 6px}
+.count{margin-left:auto;font:500 12px var(--f-mono);color:var(--ink-3)}
+#list{list-style:none;margin:0;padding:0;overflow-y:auto;flex:1;min-height:0}
+#list li{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:start;padding:12px 20px;border-bottom:1px solid var(--soft);cursor:pointer}
+#list li:hover,#list li.hl{background:var(--soft)}
+#list li.sel{background:var(--soft);box-shadow:inset 3px 0 0 var(--l3)}
+#list li:focus-visible{outline:2px solid var(--l3);outline-offset:-2px}
+.num{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font:700 12px/1 var(--f-mono);color:#fff}
+.nm{font-weight:700;font-size:14.5px}
+.meta{color:var(--ink-2);font-size:12.5px}
+.dist{font:500 12px var(--f-mono);color:var(--ink-3);text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.pill{display:inline-block;font:700 11px/1 var(--f-body);padding:4px 7px;border-radius:4px;margin-top:4px;letter-spacing:.02em}
+.pill.open{color:var(--open);background:color-mix(in srgb,var(--open) 14%,transparent)}
+.pill.closed{color:var(--closed);background:color-mix(in srgb,var(--closed) 14%,transparent)}
+.pill.soon{color:var(--soon);background:color-mix(in srgb,var(--soon) 16%,transparent)}
+.pill.brk{color:var(--soon);background:color-mix(in srgb,var(--soon) 16%,transparent)}
+.mapwrap{position:relative;min-height:0}
+#map{position:absolute;inset:0;background:var(--map)}
+.leaflet-container{font-family:var(--f-body);background:var(--map)}
+.legend{position:absolute;left:12px;bottom:12px;z-index:500;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px 10px;display:flex;flex-wrap:wrap;gap:4px 12px;font-size:12px;color:var(--ink-2);max-width:calc(100% - 24px)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+.pin{width:26px;height:26px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);display:grid;place-items:center;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.3);transition:transform .15s}
+.pin b{transform:rotate(45deg);color:#fff;font:700 11px/1 var(--f-mono)}
+.pin.dim{opacity:.35}
+.pin.big{transform:rotate(-45deg) scale(1.25)}
+.home{width:34px;height:34px;border-radius:8px;background:var(--ink);color:var(--panel);display:grid;place-items:center;font:400 12px/1 var(--f-disp);border:3px solid var(--l3);box-shadow:0 2px 8px rgba(0,0,0,.35)}
+.stn{display:flex;align-items:center;gap:4px;white-space:nowrap;font:600 11px/1 var(--f-body);color:var(--ink-2);text-shadow:0 0 3px var(--map),0 0 3px var(--map)}
+.stn i{width:9px;height:9px;border-radius:50%;background:var(--panel);border:2.5px solid var(--ink-3);flex:none}
+.ring-label{font:500 10.5px/1 var(--f-mono);color:var(--ink-3);white-space:nowrap;text-shadow:0 0 3px var(--map),0 0 3px var(--map)}
+.leaflet-tooltip.tip{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);padding:12px 14px;width:260px;white-space:normal;font-size:12.5px}
+.leaflet-tooltip.tip:before{display:none}
+.tip h3{margin:0 0 2px;font-size:15px}
+.tip .meta{margin-bottom:6px}
+.tip dl{display:grid;grid-template-columns:auto 1fr;gap:3px 10px;margin:8px 0 0}
+.tip dt{color:var(--ink-3)} .tip dd{margin:0;font-variant-numeric:tabular-nums}
+.tip .desc{margin:8px 0 0;color:var(--ink-2)}
+.tip .hint{margin-top:8px;font-size:11.5px;color:var(--l3-ink);font-weight:600}
+/* detail drawer */
+#detail{position:absolute;top:12px;right:12px;bottom:12px;width:340px;max-width:calc(100% - 24px);z-index:1000;background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);display:flex;flex-direction:column;overflow:hidden}
+#detail .dh{padding:16px 18px 12px;border-bottom:1px solid var(--line);display:grid;gap:4px;position:relative}
+#detail h2{margin:0;font:400 24px/1.15 var(--f-disp);padding-right:36px;text-wrap:balance}
+#detail .x{position:absolute;top:12px;right:12px;width:32px;height:32px;border-radius:8px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;font-size:18px;line-height:1}
+#detail .db{padding:14px 18px;overflow-y:auto;display:grid;gap:16px;align-content:start}
+#detail h4{margin:0 0 6px;font-size:11px;letter-spacing:.08em;color:var(--ink-3);font-weight:700}
+.menu{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.menu li{display:flex;gap:8px;align-items:baseline}
+.menu li span:first-child{white-space:nowrap}
+.menu .dots{flex:1;border-bottom:1px dotted var(--line);transform:translateY(-3px)}
+.menu .pr{font:500 12.5px var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.week{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;margin:0;font-size:12.5px;font-variant-numeric:tabular-nums}
+.week dt{color:var(--ink-3)} .week dd{margin:0}
+.week .today{font-weight:700;color:var(--ink)}
+.actions{display:grid;gap:8px;padding:14px 18px;border-top:1px solid var(--line)}
+.btn{display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;font:700 14px/1 var(--f-body);padding:12px;border-radius:8px;border:1px solid var(--line);color:var(--ink);background:transparent}
+.btn.pri{background:var(--l3);border-color:var(--l3);color:#fff}
+.btn:hover{filter:brightness(1.06)}
+.btn:focus-visible,.chip:focus-visible,#detail .x:focus-visible{outline:2px solid var(--l3);outline-offset:2px}
+.btn-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.note{font-size:11.5px;color:var(--ink-3);margin:0}
+.resv{font-size:12.5px;color:var(--ink-2)}
+@media (max-width:760px){
+  .app{grid-template-columns:1fr;grid-template-rows:auto 58vh auto;height:auto}
+  aside{display:contents}
+  header.top{order:1;background:var(--panel)} .controls{order:2;background:var(--panel)}
+  .mapwrap{order:3;height:58vh}
+  #list{order:4;background:var(--panel);overflow:visible}
+  header.top,.controls,#list li{padding-left:16px;padding-right:16px}
+  #detail{position:fixed;top:auto;left:0;right:0;bottom:0;width:auto;max-width:none;max-height:78vh;border-radius:14px 14px 0 0;padding-bottom:env(safe-area-inset-bottom,0px)}
+}
+@media (prefers-reduced-motion:reduce){.pin{transition:none}}
+</style>
+
+<style>html,body{margin:0}</style>
+</head>
+<body>
+<div class="app">
+  <aside>
+    <header class="top">
+      <div class="brand">
+        <div class="lines" aria-hidden="true"><span class="b2">2</span><span class="b3">3</span></div>
+        <h1>을지로 점심지도</h1>
+      </div>
+      <p class="sub">기준 <b>르네스퀘어</b> (중구 충무로9길 38-5, 을지로3가역) · 반경 3km</p>
+      <div class="clock" id="clock"></div>
+    </header>
+    <div class="controls">
+      <div class="chips" id="cats" role="group" aria-label="음식 종류"></div>
+      <div class="row">
+        <label><input type="checkbox" id="openOnly"> 지금 영업중만</label>
+        <label><input type="checkbox" id="resvOnly"> 예약 가능만</label>
+        <select id="radius" aria-label="반경">
+          <option value="3000">3km 이내</option>
+          <option value="1500">1.5km 이내</option>
+          <option value="800">도보 10분 (800m)</option>
+        </select>
+        <span class="count" id="count"></span>
+      </div>
+    </div>
+    <ul id="list" aria-label="음식점 목록"></ul>
+  </aside>
+  <div class="mapwrap">
+    <div id="map" role="region" aria-label="지도"></div>
+    <div class="legend" id="legend"></div>
+    <section id="detail" hidden aria-live="polite"></section>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script>
+const HOME = { name: "르네스퀘어", lat: 37.56715, lng: 126.99005 };
+
+const CATS = {
+  kor:   { label: "한식",       color: "#2f7d57" },
+  noodle:{ label: "면·냉면",    color: "#2a6fb0" },
+  chn:   { label: "중식",       color: "#c0392b" },
+  soup:  { label: "국밥·탕",    color: "#8a5a2b" },
+  mkt:   { label: "시장·분식",  color: "#d9861c" },
+  west:  { label: "양식·카페",  color: "#7b4fa0" },
+};
+
+// 영업시간: [월,화,수,목,금,토,일], null = 휴무. brk = 브레이크타임
+const D = (w, sat, sun) => [w, w, w, w, w, sat === undefined ? w : sat, sun === undefined ? w : sun];
+const R = [
+  { n:"우래옥", c:"noodle", lat:37.56829, lng:126.99818, h:D("11:30-21:00"), mon:null,
+    desc:"1946년 개업한 평양냉면 노포. 전통 불고기와 함께 먹는 물냉면이 대표.", price:"1.6~4만원", resv:false,
+    menu:[["전통 평양냉면","16,000"],["비빔냉면","16,000"],["불고기(150g)","35,000"],["김치말이냉면","16,000"]] },
+  { n:"평래옥", c:"noodle", lat:37.56553, lng:126.99287, h:D("11:00-21:30","11:00-20:30",null), brk:"15:00-16:00",
+    desc:"초계탕과 초계국수로 유명한 을지로 직장인 단골집. 점심엔 줄이 빨리 빠지는 편.", price:"1.2~1.8만원", resv:false,
+    menu:[["초계국수","12,000"],["물냉면","13,000"],["닭무침","18,000"],["녹두전","12,000"]] },
+  { n:"조선옥", c:"kor", lat:37.56648, lng:126.99221, h:D("11:30-22:00",null,null), brk:"15:00-17:00",
+    desc:"1937년부터 이어온 연탄불 소갈비집. 점심엔 육개장·갈비탕 수요가 많음.", price:"1.3~5만원", resv:true,
+    menu:[["한우 양념갈비","48,000"],["갈비탕","15,000"],["육개장","13,000"],["냉면","12,000"]] },
+  { n:"안동장", c:"chn", lat:37.56613, lng:126.99392, h:D("11:00-21:30","11:00-21:00",null),
+    desc:"1948년 개업, 굴짬뽕의 원조로 알려진 화교 중식당.", price:"1~2.5만원", resv:true,
+    menu:[["굴짬뽕","13,000"],["짜장면","9,000"],["탕수육(소)","24,000"],["군만두","9,000"]] },
+  { n:"오구반점", c:"chn", lat:37.56502, lng:126.99488, h:D("11:30-21:00",undefined,null), brk:"15:00-17:00",
+    desc:"두툼한 군만두와 볶음밥으로 오래 사랑받는 을지로 중식 노포.", price:"0.9~2만원", resv:false,
+    menu:[["군만두","10,000"],["볶음밥","10,000"],["짜장면","8,000"],["짬뽕","10,000"]] },
+  { n:"산수갑산", c:"soup", lat:37.56474, lng:126.99582, h:D("08:00-21:00","08:00-15:00",null),
+    desc:"수제 순대와 순댓국으로 유명한 인현동 골목집. 이른 아침부터 영업.", price:"1.1~2.5만원", resv:false,
+    menu:[["순댓국","11,000"],["모듬순대","22,000"],["오소리감투","25,000"]] },
+  { n:"동원집", c:"soup", lat:37.56634, lng:126.99118, h:D("08:00-21:30",undefined,null),
+    desc:"을지로3가역 앞 감자국(뼈해장국)과 순대로 유명한 노포.", price:"1~2만원", resv:false,
+    menu:[["감자국","10,000"],["순대국","10,000"],["머릿고기","20,000"]] },
+  { n:"을지다락", c:"west", lat:37.56608, lng:126.99137, h:D("11:30-21:30"), brk:"15:30-17:00",
+    desc:"레트로 다락방 분위기의 파스타·오므라이스 집. 점심 웨이팅 잦음.", price:"1.5~2만원", resv:true,
+    menu:[["차돌 크림파스타","18,500"],["우삼겹 오므라이스","16,500"],["바질 크림리조또","17,000"]] },
+  { n:"커피한약방", c:"west", lat:37.56673, lng:126.98869, h:D("08:00-22:00","11:00-22:00","11:00-22:00"),
+    desc:"을지로 골목 안 앤티크 카페. 점심 후 커피 한 잔 코스.", price:"0.5~0.7만원", resv:false,
+    menu:[["핸드드립","6,500"],["카페라떼","6,000"],["혜민당 디저트","5,500"]] },
+  { n:"오장동 흥남집", c:"noodle", lat:37.56621, lng:126.99776, h:D("11:00-20:30",undefined,undefined), mon:null,
+    desc:"1953년 문을 연 함흥냉면 전문점. 회냉면이 대표 메뉴.", price:"1.5~1.7만원", resv:false,
+    menu:[["회냉면","16,000"],["비빔냉면","15,000"],["물냉면","15,000"],["온면","15,000"]] },
+  { n:"오장동 함흥냉면", c:"noodle", lat:37.56599, lng:126.99719, h:D("11:00-20:00"), tue:null,
+    desc:"오장동 냉면골목의 또 다른 터줏대감. 쫄깃한 전분면.", price:"1.5만원", resv:false,
+    menu:[["회냉면","15,000"],["비빔냉면","15,000"],["물냉면","15,000"]] },
+  { n:"필동면옥", c:"noodle", lat:37.55998, lng:126.99359, h:D("11:00-21:00",undefined,null),
+    desc:"의정부 계열 평양냉면. 고춧가루 뿌린 슴슴한 육수가 특징.", price:"1.5~3만원", resv:false,
+    menu:[["물냉면","15,000"],["비빔냉면","15,000"],["제육","30,000"],["만두","12,000"]] },
+  { n:"사랑방칼국수", c:"noodle", lat:37.56232, lng:126.99196, h:D("10:30-21:00",undefined,null),
+    desc:"충무로 인쇄골목의 백숙·닭칼국수 노포. 직장인 점심 명소.", price:"1~3만원", resv:false,
+    menu:[["닭칼국수","10,000"],["닭백숙(반)","25,000"],["만두","8,000"]] },
+  { n:"명동교자 본점", c:"noodle", lat:37.56253, lng:126.98568, h:D("10:30-21:00"),
+    desc:"진한 닭육수 칼국수와 마늘 김치. 회전율이 빨라 점심에 적당.", price:"1.1~1.3만원", resv:false,
+    menu:[["칼국수","11,000"],["비빔국수","11,000"],["만두","12,000"],["콩국수(여름)","13,000"]] },
+  { n:"하동관 명동본점", c:"soup", lat:37.56403, lng:126.98476, h:D("07:00-16:00","07:00-15:00",null),
+    desc:"1939년 개업한 곰탕 명가. 오후 4시에 문을 닫으니 점심 이른 방문 권장.", price:"1.6~2.5만원", resv:false,
+    menu:[["곰탕","16,000"],["특곰탕","20,000"],["수육","45,000"]] },
+  { n:"명동 충무김밥", c:"mkt", lat:37.56313, lng:126.98514, h:D("09:00-21:00"),
+    desc:"오징어무침·섞박지와 함께 먹는 충무김밥 한 접시로 빠른 점심.", price:"1.1만원", resv:false,
+    menu:[["충무김밥","11,000"],["시락국","2,000"]] },
+  { n:"부민옥", c:"soup", lat:37.56812, lng:126.98026, h:D("11:00-21:30","11:00-20:30",null), brk:"15:00-16:30",
+    desc:"다동의 육개장·양무침 노포. 광화문·시청 직장인 단골.", price:"1.3~3.5만원", resv:true,
+    menu:[["육개장","13,000"],["선짓국","11,000"],["양무침","35,000"]] },
+  { n:"무교동 북어국집", c:"soup", lat:37.56803, lng:126.97994, h:D("07:00-20:00","07:00-15:00","07:00-15:00"),
+    desc:"메뉴는 북엇국 하나. 자리에 앉으면 바로 나오는 초고속 점심.", price:"1.1만원", resv:false,
+    menu:[["북어해장국","11,000"]] },
+  { n:"청진옥", c:"soup", lat:37.57145, lng:126.98117, h:D("00:00-24:00"),
+    desc:"1937년 개업, 선지 해장국의 원조격. 24시간 영업.", price:"1.2~3만원", resv:false,
+    menu:[["해장국","12,000"],["모듬수육","30,000"],["빈대떡","15,000"]] },
+  { n:"이문설농탕", c:"soup", lat:37.57244, lng:126.98474, h:D("08:00-21:00","08:00-20:00","08:00-20:00"),
+    desc:"1904년 개업, 서울에서 가장 오래된 식당 중 하나로 꼽히는 설렁탕집.", price:"1.3~1.8만원", resv:false,
+    menu:[["설농탕","13,000"],["특설농탕","18,000"],["도가니탕","18,000"]] },
+  { n:"광화문 미진", c:"noodle", lat:37.57094, lng:126.97803, h:D("10:30-21:00"),
+    desc:"차가운 메밀국수를 주전자 장국에 담가 먹는 광화문 대표 메밀집.", price:"1.2~1.6만원", resv:false,
+    menu:[["냉메밀","12,000"],["비빔메밀","13,000"],["메밀전병","12,000"]] },
+  { n:"서린낙지", c:"kor", lat:37.57078, lng:126.98224, h:D("11:00-22:00","11:00-21:00",null), brk:"15:00-17:00",
+    desc:"맵게 볶은 낙지볶음과 베이컨 소시지 구이 조합.", price:"2~3만원", resv:true,
+    menu:[["낙지볶음","24,000"],["베이컨소시지","20,000"],["점심 낙지덮밥","14,000"]] },
+  { n:"찬양집", c:"noodle", lat:37.57155, lng:126.99152, h:D("10:30-20:30",undefined,null),
+    desc:"종로3가 골목의 해물 칼국수 한 그릇 노포.", price:"0.9만원", resv:false,
+    menu:[["해물칼국수","9,000"]] },
+  { n:"창화당 익선본점", c:"mkt", lat:37.57378, lng:126.98934, h:D("11:00-21:30"), brk:"15:30-16:30",
+    desc:"익선동 한옥골목의 만두·떡볶이 분식집.", price:"0.8~1.4만원", resv:false,
+    menu:[["고기교자","8,000"],["김치교자","8,000"],["짜장떡볶이","12,000"]] },
+  { n:"토속촌 삼계탕", c:"soup", lat:37.57788, lng:126.97138, h:D("10:00-22:00"),
+    desc:"경복궁 서촌의 삼계탕 명소. 점심 시간 대기 있음.", price:"2~3만원", resv:false,
+    menu:[["토속촌 삼계탕","20,000"],["오골계 삼계탕","30,000"],["전기구이 통닭","18,000"]] },
+  { n:"박가네 빈대떡", c:"mkt", lat:37.57019, lng:126.99965, h:D("08:30-23:00"),
+    desc:"광장시장 녹두빈대떡 대표 가게. 빠른 한 끼로 좋음.", price:"0.6~1.5만원", resv:false,
+    menu:[["녹두빈대떡","6,000"],["고기완자","3,000"],["육회","15,000"]] },
+  { n:"광장시장 원조 마약김밥", c:"mkt", lat:37.57001, lng:126.99915, h:D("08:30-19:00"),
+    desc:"한 입 크기 꼬마김밥과 겨자장. 가볍게 먹기 좋은 시장 점심.", price:"0.4~0.8만원", resv:false,
+    menu:[["마약김밥","4,000"],["떡볶이","5,000"]] },
+  { n:"진옥화할매 닭한마리", c:"kor", lat:37.57078, lng:127.00588, h:D("10:30-01:00"),
+    desc:"동대문 닭한마리 골목의 원조. 2인 이상 점심 회식 코스.", price:"인당 1.5만원", resv:false,
+    menu:[["닭한마리","30,000"],["칼국수 사리","2,000"],["떡 사리","2,000"]] },
+  { n:"평양면옥 장충동", c:"noodle", lat:37.56006, lng:127.00549, h:D("11:00-21:30"),
+    desc:"장충동 평양냉면 3대 노포 중 하나. 만두도 인기.", price:"1.6~3만원", resv:false,
+    menu:[["평양냉면","16,000"],["만두","15,000"],["어복쟁반(소)","80,000"]] },
+  { n:"평안도족발집", c:"kor", lat:37.56104, lng:127.00635, h:D("11:30-22:00"),
+    desc:"장충동 족발골목 초창기 가게. 점심 족발 백반도 가능.", price:"1.2~5만원", resv:true,
+    menu:[["족발(중)","48,000"],["족발 백반","12,000"],["빈대떡","15,000"]] },
+  { n:"마복림 떡볶이", c:"mkt", lat:37.56590, lng:127.01542, h:D("09:30-22:00"),
+    desc:"신당동 떡볶이타운을 만든 원조 즉석떡볶이집.", price:"인당 1만원", resv:false,
+    menu:[["즉석떡볶이(2인)","18,000"],["라면사리","2,000"],["볶음밥","3,000"]] },
+  { n:"희락 갈치조림", c:"kor", lat:37.55955, lng:126.97708, h:D("08:00-21:00",undefined,null),
+    desc:"남대문시장 갈치조림 골목의 대표 가게.", price:"1.3~1.5만원", resv:false,
+    menu:[["갈치조림(1인)","13,000"],["갈치구이","15,000"]] },
+];
+R.forEach((r, i) => {
+  r.id = i + 1;
+  if ("mon" in r) r.h[0] = r.mon;
+  if ("tue" in r) r.h[1] = r.tue;
+});
+
+const STATIONS = [
+  ["시청",37.5657,126.9772,["1","2"]],["을지로입구",37.5660,126.9826,["2"]],["을지로3가",37.5663,126.9910,["2","3"]],
+  ["을지로4가",37.5667,126.9981,["2","5"]],["동대문역사문화공원",37.5652,127.0080,["2","4","5"]],["신당",37.5657,127.0175,["2","6"]],
+  ["종각",37.5702,126.9831,["1"]],["종로3가",37.5704,126.9920,["1","3","5"]],["종로5가",37.5709,127.0019,["1"]],
+  ["동대문",37.5714,127.0098,["1","4"]],["광화문",37.5710,126.9766,["5"]],["안국",37.5765,126.9855,["3"]],
+  ["명동",37.5609,126.9863,["4"]],["회현",37.5585,126.9785,["4"]],["충무로",37.5612,126.9942,["3","4"]],
+  ["동대입구",37.5590,127.0053,["3"]],["청구",37.5603,127.0137,["5","6"]],["서울역",37.5547,126.9707,["1","4"]],
+];
+const LINE_COLOR = {"1":"#0052a4","2":"#2f9e44","3":"#f26a1b","4":"#00a2d1","5":"#8b50a4","6":"#c55c1d"};
+const ROADS = [
+  { name:"을지로", pts:[[37.5660,126.9760],[37.5660,126.9826],[37.5663,126.9910],[37.5667,126.9981],[37.5655,127.0079],[37.5657,127.0175]] },
+  { name:"종로", pts:[[37.5708,126.9768],[37.5702,126.9831],[37.5704,126.9920],[37.5709,127.0019],[37.5714,127.0098],[37.5725,127.0200]] },
+  { name:"퇴계로", pts:[[37.5560,126.9725],[37.5585,126.9785],[37.5609,126.9863],[37.5612,126.9942],[37.5635,127.0020],[37.5650,127.0075]] },
+  { name:"세종대로", pts:[[37.5790,126.9769],[37.5710,126.9768],[37.5657,126.9772],[37.5600,126.9754],[37.5547,126.9725]] },
+  { name:"삼일대로", pts:[[37.5770,126.9855],[37.5700,126.9880],[37.5660,126.9868],[37.5609,126.9863],[37.5560,126.9860]] },
+  { name:"창경궁로", pts:[[37.5775,126.9975],[37.5704,126.9965],[37.5667,126.9981],[37.5612,126.9975],[37.5575,126.9960]] },
+  { name:"장충단로", pts:[[37.5714,127.0098],[37.5652,127.0080],[37.5590,127.0053],[37.5530,127.0030]] },
+  { name:"율곡로", pts:[[37.5760,126.9770],[37.5765,126.9855],[37.5760,126.9975],[37.5740,127.0080]] },
+];
+const STREAM = [[37.5693,126.9779],[37.5690,126.9830],[37.5690,126.9900],[37.5689,126.9960],[37.5687,127.0030],[37.5690,127.0100],[37.5700,127.0180],[37.5712,127.0250]];
+
+// ---------- time helpers (KST) ----------
+const DAYS = ["월","화","수","목","금","토","일"];
+function kstNow(){
+  const p = Object.fromEntries(new Intl.DateTimeFormat("en-US",{timeZone:"Asia/Seoul",weekday:"short",hour:"2-digit",minute:"2-digit",hour12:false})
+    .formatToParts(new Date()).map(x=>[x.type,x.value]));
+  const wd = {Mon:0,Tue:1,Wed:2,Thu:3,Fri:4,Sat:5,Sun:6}[p.weekday];
+  const h = parseInt(p.hour,10)%24, m = parseInt(p.minute,10);
+  return { wd, min: h*60+m, label: `${DAYS[wd]}요일 ${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}` };
+}
+const toMin = s => { const [h,m] = s.split(":").map(Number); return h*60+m; };
+function span(s){ const [a,b] = s.split("-"); let e = toMin(b); const st = toMin(a); if (e <= st) e += 1440; return [st,e]; }
+function status(r, now){
+  const t = now.min, today = r.h[now.wd], yest = r.h[(now.wd+6)%7];
+  if (yest){ const [s,e] = span(yest); if (e > 1440 && t < e-1440) return {k:"open", t:`영업중 · ${fmt(e-1440)} 마감`}; }
+  if (!today) return {k:"closed", t:"오늘 휴무"};
+  const [s,e] = span(today);
+  if (s === 0 && e === 1440) return {k:"open", t:"24시간 영업"};
+  if (t < s) return {k:"closed", t:`${fmt(s)} 오픈`};
+  if (t >= e) return {k:"closed", t:"영업 종료"};
+  if (r.brk){ const [bs,be] = span(r.brk); if (t >= bs && t < be) return {k:"brk", t:`브레이크 · ${fmt(be)} 재개`}; }
+  if (e - t <= 60) return {k:"soon", t:`곧 마감 · ${fmt(e)}`};
+  return {k:"open", t:`영업중 · ${fmt(e)} 마감`};
+}
+const fmt = m => `${String(Math.floor(m/60)%24).padStart(2,"0")}:${String(m%60).padStart(2,"0")}`;
+function dist(a,b){
+  const R0 = 6371000, rad = x => x*Math.PI/180;
+  const dLat = rad(b.lat-a.lat), dLng = rad(b.lng-a.lng);
+  const s = Math.sin(dLat/2)**2 + Math.cos(rad(a.lat))*Math.cos(rad(b.lat))*Math.sin(dLng/2)**2;
+  return 2*R0*Math.asin(Math.sqrt(s));
+}
+const distLabel = d => d < 1000 ? `${Math.round(d/10)*10}m` : `${(d/1000).toFixed(1)}km`;
+const walk = d => `도보 ${Math.max(1,Math.round(d*1.25/75))}분`;
+R.forEach(r => r.d = dist(HOME, r));
+
+// links: 메뉴·예약은 네이버 지도 플레이스, 보조로 카카오맵
+const naver = r => `https://map.naver.com/p/search/${encodeURIComponent(r.n)}`;
+const kakao = r => `https://map.kakao.com/?q=${encodeURIComponent(r.n)}`;
+const catchtable = r => `https://app.catchtable.co.kr/ct/search/total?keyword=${encodeURIComponent(r.n)}`;
+
+// ---------- state ----------
+const state = { cat:"all", openOnly:false, resvOnly:false, radius:3000, sel:null };
+try { const s = JSON.parse(localStorage.getItem("euljiro-lunch")||"{}"); Object.assign(state, s, {sel:null}); } catch(e){}
+const save = () => { try { localStorage.setItem("euljiro-lunch", JSON.stringify({cat:state.cat,openOnly:state.openOnly,resvOnly:state.resvOnly,radius:state.radius})); } catch(e){} };
+
+// ---------- map ----------
+const map = L.map("map", { zoomControl:true, attributionControl:true }).setView([HOME.lat, HOME.lng], 15);
+const dark = () => document.documentElement.dataset.theme === "dark" ||
+  (document.documentElement.dataset.theme !== "light" && matchMedia("(prefers-color-scheme: dark)").matches);
+const tiles = L.tileLayer(`https://{s}.basemaps.cartocdn.com/${dark()?"dark_all":"light_all"}/{z}/{x}/{y}{r}.png`, {
+  maxZoom: 19, subdomains:"abcd",
+  attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>'
+}).addTo(map);
+
+// 타일을 불러올 수 없는 환경(오프라인·샌드박스)에서는 직접 그린 약도로 대체
+const base = L.layerGroup();
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+function drawBase(){
+  base.clearLayers();
+  L.polyline(STREAM, { color: css("--stream"), weight: 6, opacity:.9, interactive:false }).addTo(base);
+  ROADS.forEach(rd => {
+    L.polyline(rd.pts, { color: css("--road"), weight: 5, interactive:false }).addTo(base);
+    const mid = rd.pts[Math.floor(rd.pts.length/2)-1] || rd.pts[0];
+    const nx = rd.pts[Math.floor(rd.pts.length/2)];
+    L.marker([(mid[0]+nx[0])/2, (mid[1]+nx[1])/2], { interactive:false,
+      icon: L.divIcon({ className:"", html:`<span class="ring-label">${rd.name}</span>`, iconSize:[0,0] }) }).addTo(base);
+  });
+  L.marker([37.5693,126.9935], { interactive:false, icon:L.divIcon({className:"",html:`<span class="ring-label" style="color:var(--stream)">청계천</span>`,iconSize:[0,0]}) }).addTo(base);
+  STATIONS.forEach(([nm,lat,lng,ls]) => {
+    L.marker([lat,lng], { interactive:false, icon: L.divIcon({ className:"", iconSize:[0,0], iconAnchor:[5,5],
+      html:`<span class="stn"><i style="border-color:${LINE_COLOR[ls[0]]}"></i>${nm}</span>` }) }).addTo(base);
+  });
+}
+let tileFails = 0, usingBase = false;
+tiles.on("tileerror", () => {
+  if (usingBase || ++tileFails < 3) return;
+  usingBase = true; map.removeLayer(tiles); drawBase(); base.addTo(map); base.eachLayer(l => l.bringToBack && l.bringToBack());
+  map.attributionControl.setPrefix("약도 모드 · 도로 위치는 대략적");
+});
+
+// radius rings
+const rings = L.layerGroup().addTo(map);
+[500,1000,2000,3000].forEach(m => {
+  L.circle([HOME.lat,HOME.lng], { radius:m, color: m===3000? "#f26a1b" : "#7d8b84", weight: m===3000?2:1,
+    dashArray: m===3000? null : "4 6", fill: m===3000, fillOpacity:.03, interactive:false }).addTo(rings);
+  const lat = HOME.lat + m/111320;
+  L.marker([lat, HOME.lng], { interactive:false, icon:L.divIcon({className:"",iconSize:[0,0],iconAnchor:[14,8],
+    html:`<span class="ring-label">${m>=1000?m/1000+"km":m+"m"}</span>`}) }).addTo(rings);
+});
+L.marker([HOME.lat,HOME.lng], { zIndexOffset:1000, keyboard:false,
+  icon:L.divIcon({ className:"", html:`<div class="home" title="르네스퀘어">회사</div>`, iconSize:[34,34], iconAnchor:[17,17] }) })
+  .bindTooltip(`<h3>르네스퀘어</h3><div class="meta">서울 중구 충무로9길 38-5 (수표동)<br>을지로3가역 도보권 · 기준 위치</div>`, { className:"tip", direction:"top", offset:[0,-18] })
+  .addTo(map);
+
+// restaurant markers
+const markers = {};
+function pinIcon(r, cls=""){
+  return L.divIcon({ className:"", iconSize:[26,26], iconAnchor:[13,26], tooltipAnchor:[0,-26],
+    html:`<div class="pin ${cls}" style="background:${CATS[r.c].color}"><b>${r.id}</b></div>` });
+}
+function weekRows(r, now){
+  return r.h.map((v,i)=>`<dt${i===now.wd?' class="today"':''}>${DAYS[i]}</dt><dd${i===now.wd?' class="today"':''}>${v ? (v==="00:00-24:00"?"24시간":v.replace("-"," – ")) : "휴무"}</dd>`).join("");
+}
+function tipHTML(r){
+  const now = kstNow(), st = status(r, now), today = r.h[now.wd];
+  return `<h3>${r.n}</h3>
+    <div class="meta">${CATS[r.c].label} · ${distLabel(r.d)} · ${walk(r.d)}</div>
+    <span class="pill ${st.k}">${st.t}</span>
+    <dl>
+      <dt>오늘</dt><dd>${today ? (today==="00:00-24:00"?"24시간":today.replace("-"," – ")) : "휴무"}</dd>
+      ${r.brk?`<dt>브레이크</dt><dd>${r.brk.replace("-"," – ")}</dd>`:""}
+      <dt>가격대</dt><dd>${r.price}</dd>
+      <dt>대표</dt><dd>${r.menu[0][0]}</dd>
+      <dt>예약</dt><dd>${r.resv?"가능":"불가 · 현장 대기"}</dd>
+    </dl>
+    <p class="desc">${r.desc}</p>
+    <div class="hint">클릭하면 메뉴와 예약 링크를 볼 수 있어요</div>`;
+}
+R.forEach(r => {
+  const m = L.marker([r.lat, r.lng], { icon: pinIcon(r), title: r.n, riseOnHover:true })
+    .bindTooltip(() => tipHTML(r), { className:"tip", direction:"top", offset:[0,-4], opacity:1 })
+    .on("click", () => select(r.id, false))
+    .on("mouseover", () => hl(r.id, true)).on("mouseout", () => hl(r.id, false));
+  markers[r.id] = m;
+});
+
+// ---------- UI ----------
+const $ = s => document.querySelector(s);
+const catsEl = $("#cats");
+[["all","전체"], ...Object.entries(CATS).map(([k,v])=>[k,v.label])].forEach(([k,label]) => {
+  const b = document.createElement("button");
+  b.className = "chip"; b.type = "button"; b.dataset.cat = k; b.id = "cat-"+k;
+  b.innerHTML = k==="all" ? label : `<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${CATS[k].color};margin-right:5px"></span>${label}`;
+  b.onclick = () => { state.cat = k; save(); render(); };
+  catsEl.append(b);
+});
+$("#legend").innerHTML = Object.values(CATS).map(c=>`<span><i style="background:${c.color}"></i>${c.label}</span>`).join("") +
+  `<span><i style="background:var(--ink);border-radius:2px;outline:2px solid #f26a1b"></i>르네스퀘어</span>`;
+$("#openOnly").onchange = e => { state.openOnly = e.target.checked; save(); render(); };
+$("#resvOnly").onchange = e => { state.resvOnly = e.target.checked; save(); render(); };
+$("#radius").onchange = e => { state.radius = +e.target.value; save(); render(); };
+
+function visible(now){
+  return R.filter(r => (state.cat==="all" || r.c===state.cat) && r.d <= state.radius
+    && (!state.openOnly || ["open","soon"].includes(status(r,now).k))
+    && (!state.resvOnly || r.resv)).sort((a,b)=>a.d-b.d);
+}
+function render(){
+  const now = kstNow();
+  $("#clock").textContent = `지금 ${now.label} (KST) 기준 영업 상태`;
+  catsEl.querySelectorAll(".chip").forEach(b => b.setAttribute("aria-pressed", b.dataset.cat===state.cat));
+  $("#openOnly").checked = state.openOnly; $("#resvOnly").checked = state.resvOnly; $("#radius").value = state.radius;
+  const vis = visible(now), ids = new Set(vis.map(r=>r.id));
+  R.forEach(r => { const m = markers[r.id]; if (ids.has(r.id)) { if (!map.hasLayer(m)) m.addTo(map); } else if (map.hasLayer(m)) map.removeLayer(m); });
+  $("#count").textContent = `${vis.length}곳`;
+  $("#list").innerHTML = vis.length ? vis.map(r => { const st = status(r, now); return `
+    <li data-id="${r.id}" tabindex="0" class="${state.sel===r.id?"sel":""}">
+      <span class="num" style="background:${CATS[r.c].color}">${r.id}</span>
+      <div><div class="nm">${r.n}</div><div class="meta">${CATS[r.c].label} · ${r.menu[0][0]} · ${r.price}</div>
+        <span class="pill ${st.k}">${st.t}</span></div>
+      <div class="dist">${distLabel(r.d)}<br>${walk(r.d)}</div>
+    </li>`; }).join("") : `<li style="cursor:default;display:block;color:var(--ink-3)">조건에 맞는 음식점이 없어요. 필터를 줄여보세요.</li>`;
+  if (state.sel) showDetail(R.find(r=>r.id===state.sel));
+}
+$("#list").addEventListener("click", e => { const li = e.target.closest("li[data-id]"); if (li) select(+li.dataset.id, true); });
+$("#list").addEventListener("keydown", e => { if ((e.key==="Enter"||e.key===" ") && e.target.dataset.id){ e.preventDefault(); select(+e.target.dataset.id, true); } });
+$("#list").addEventListener("mouseover", e => { const li = e.target.closest("li[data-id]"); if (li) { hl(+li.dataset.id, true); markers[+li.dataset.id].openTooltip(); } });
+$("#list").addEventListener("mouseout", e => { const li = e.target.closest("li[data-id]"); if (li) { hl(+li.dataset.id, false); markers[+li.dataset.id].closeTooltip(); } });
+
+function hl(id, on){
+  const r = R.find(x=>x.id===id); if (!r) return;
+  markers[id].setIcon(pinIcon(r, on || state.sel===id ? "big" : ""));
+  const li = document.querySelector(`#list li[data-id="${id}"]`); if (li) li.classList.toggle("hl", on);
+}
+function select(id, fly){
+  const prev = state.sel; state.sel = id;
+  if (prev && prev!==id) hl(prev, false);
+  const r = R.find(x=>x.id===id);
+  hl(id, true);
+  if (fly) map.flyTo([r.lat, r.lng], Math.max(map.getZoom(), 16), { duration: matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : .6 });
+  document.querySelectorAll("#list li").forEach(li => li.classList.toggle("sel", +li.dataset.id===id));
+  showDetail(r);
+}
+function showDetail(r){
+  const now = kstNow(), st = status(r, now), el = $("#detail");
+  el.innerHTML = `
+    <div class="dh">
+      <h2>${r.n}</h2>
+      <div class="meta">${CATS[r.c].label} · 르네스퀘어에서 ${distLabel(r.d)} (${walk(r.d)})</div>
+      <div><span class="pill ${st.k}">${st.t}</span></div>
+      <button class="x" id="closeDetail" aria-label="닫기">×</button>
+    </div>
+    <div class="db">
+      <p class="desc" style="margin:0;color:var(--ink-2)">${r.desc}</p>
+      <div><h4>대표 메뉴 · 가격 참고용</h4><ul class="menu">${r.menu.map(([a,p])=>`<li><span>${a}</span><span class="dots"></span><span class="pr">${p}원</span></li>`).join("")}</ul></div>
+      <div><h4>영업시간</h4><dl class="week">${weekRows(r, now)}${r.brk?`<dt>브레이크</dt><dd>${r.brk.replace("-"," – ")}</dd>`:""}</dl></div>
+      <div><h4>예약</h4><div class="resv">${r.resv ? "네이버 예약·전화 예약 가능 (점심 단체는 미리 예약 권장)" : "예약을 받지 않는 곳이에요. 11:30 이전 방문하면 대기가 짧아요."}</div></div>
+      <p class="note">메뉴 가격과 영업시간은 가게 사정으로 바뀔 수 있어요. 방문 전 지도 앱에서 최신 정보를 확인하세요.</p>
+    </div>
+    <div class="actions">
+      <a class="btn pri" href="${naver(r)}" target="_blank" rel="noopener">${r.resv ? "예약하기 · 네이버 플레이스" : "메뉴·대기 정보 · 네이버 플레이스"}</a>
+      <div class="btn-row">
+        <a class="btn" href="${naver(r)}" target="_blank" rel="noopener">전체 메뉴 보기</a>
+        <a class="btn" href="${r.resv ? catchtable(r) : kakao(r)}" target="_blank" rel="noopener">${r.resv ? "캐치테이블" : "카카오맵"}</a>
+      </div>
+    </div>`;
+  el.hidden = false;
+  $("#closeDetail").onclick = () => { const id = state.sel; state.sel = null; el.hidden = true; hl(id, false); document.querySelectorAll("#list li.sel").forEach(li=>li.classList.remove("sel")); };
+}
+document.addEventListener("keydown", e => { if (e.key==="Escape" && !$("#detail").hidden) $("#closeDetail").click(); });
+
+render();
+setInterval(render, 60000);
+</script>
+</body>
+</html>
